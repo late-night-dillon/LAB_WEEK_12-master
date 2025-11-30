@@ -12,11 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.test_lab_week_12.model.Movie
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
-import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
 
-    // Adapter dengan click listener yang mengirim 4 extra ke DetailsActivity
     private val movieAdapter = MovieAdapter(
         object : MovieAdapter.MovieClickListener {
             override fun onMovieClick(movie: Movie) {
@@ -46,29 +44,13 @@ class MainActivity : AppCompatActivity() {
                 }
             })[MovieViewModel::class.java]
 
-        // ─────────────────────────────────────────────
-        // GANTI observe LiveData → collect StateFlow
-        // ─────────────────────────────────────────────
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-
-                // collect list film
                 launch {
                     movieViewModel.popularMovies.collect { movies ->
-                        val currentYear =
-                            Calendar.getInstance().get(Calendar.YEAR).toString()
-
-                        movieAdapter.addMovies(
-                            movies
-                                .filter { movie ->
-                                    movie.releaseDate?.startsWith(currentYear) == true
-                                }
-                                .sortedByDescending { it.popularity }
-                        )
+                        movieAdapter.addMovies(movies)
                     }
                 }
-
-                // collect error
                 launch {
                     movieViewModel.error.collect { error ->
                         if (error.isNotEmpty()) {
