@@ -2,6 +2,7 @@ package com.example.test_lab_week_12.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable   // ← tambahkan ini
 
 @JsonClass(generateAdapter = true)
 data class Movie(
@@ -24,5 +25,4 @@ data class Movie(
     val voteAverage: Float = 0f,
     @field:Json(name = "vote_count")
     val voteCount: Int = 0
-)
-
+) : Serializable            // ← dan ini
