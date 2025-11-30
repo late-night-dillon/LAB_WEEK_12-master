@@ -41,9 +41,11 @@ Aplikasi dibangun secara bertahap dalam 3 commit utama:
 Contoh struktur:
 
 - Halaman utama (grid daftar film)
-  <img width="1917" height="1016" alt="commit2" src="https://github.com/user-attachments/assets/af7e4622-c24f-47aa-8cef-fe5b602e48f8" />
+  <img width="1919" height="1015" alt="commit3 (1)" src="https://github.com/user-attachments/assets/60a826cb-95d0-4903-9276-16a9648b708c" />
+
 - Halaman detail film
-  <img width="1919" height="1013" alt="commit2 (2)" src="https://github.com/user-attachments/assets/dde37ef6-b8f2-4b27-9d80-be097a79b665" />  
+  <img width="1919" height="1023" alt="commit3 (2)" src="https://github.com/user-attachments/assets/a2f111af-34bb-4819-815c-2b339030929c" />
+
 
 ---
 
